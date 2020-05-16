@@ -17,5 +17,15 @@ namespace UnitTestProject
             Assert.AreEqual("1,3", actual);
             Console.WriteLine(time);
         }
+
+        [TestMethod]
+        public void ReverseInteger()
+        {
+            int time = 0;
+            int actual = code.ReverseInteger(-123, ref time);
+
+            Assert.AreEqual(-321, actual);
+            Console.WriteLine(time);
+        }
     }
 }

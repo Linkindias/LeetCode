@@ -46,6 +46,27 @@ namespace LeetCode
             return "not find";
         }
 
-      
+        public int ReverseInteger(int input, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            if (-65534 <= input && input <= 65536)
+            {
+                int num = 1;
+                var chars = input.ToString().ToCharArray();
+
+                if (chars[0] == '-')
+                {
+                    num = -1;
+                    chars[0] = ' ';
+                }
+                Array.Reverse(chars);
+                int result = int.Parse(string.Join("", chars)) * num;
+                stopWatch.Stop();
+                time = stopWatch.Elapsed.Seconds;
+                return result;
+            }
+            return 0;
+        }
     }
 }
