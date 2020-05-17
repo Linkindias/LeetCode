@@ -68,5 +68,14 @@ namespace LeetCode
             }
             return 0;
         }
+
+        public bool PalindromeNumber(int input, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Seconds;
+        }
     }
 }

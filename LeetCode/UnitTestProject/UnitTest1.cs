@@ -27,5 +27,16 @@ namespace UnitTestProject
             Assert.AreEqual(-321, actual);
             Console.WriteLine(time);
         }
+
+        [TestMethod]
+        public void PalindromeNumber()
+        {
+            int time = 0;
+            bool actual = code.PalindromeNumber(-123, ref time);
+
+            Assert.AreEqual(false, actual);
+            Console.WriteLine(time);
+        }
+        
     }
 }
