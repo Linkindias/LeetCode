@@ -19,7 +19,7 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void ReverseInteger()
+        public void ReverseIlnteger()
         {
             int time = 0;
             int actual = code.ReverseInteger(-123, ref time);

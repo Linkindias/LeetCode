@@ -74,8 +74,12 @@ namespace LeetCode
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            char[] charNumber = input.ToString().ToCharArray();
+            Array.Reverse(charNumber);
+            string result = string.Join("", charNumber);
             stopWatch.Stop();
             time = stopWatch.Elapsed.Seconds;
+            return result == input.ToString();
         }
     }
 }
