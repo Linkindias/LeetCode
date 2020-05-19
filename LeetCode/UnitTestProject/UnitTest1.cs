@@ -12,7 +12,7 @@ namespace UnitTestProject
         public void TwoSum()
         {
             int time = 0;
-            string actual = code.TwoSum(new int[] {1,3,9,4},7,ref time);
+            string actual = code.TwoSum(new int[] { 1, 3, 9, 4 }, 7, ref time);
 
             Assert.AreEqual("1,3", actual);
             Console.WriteLine(time);
@@ -48,5 +48,14 @@ namespace UnitTestProject
             Console.WriteLine(time);
         }
 
+        [TestMethod]
+        public void LongestCommonPrefix()
+        {
+            int time = 0;
+            string actual = code.LongestCommonPrefix(new[] { "flower", "flow", "flight" }, ref time);
+
+            Assert.AreEqual("fl", actual);
+            Console.WriteLine(time);
+        }
     }
 }

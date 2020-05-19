@@ -124,5 +124,16 @@ namespace LeetCode
             }
             return input;
         }
+
+        public string LongestCommonPrefix(string[] inputs, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            string result = string.Empty;
+
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Seconds;
+            return result;
+        }
     }
 }
