@@ -14,7 +14,7 @@ Example 1: Input: 123 Output: 321</br>
 Example 2: Input: -123 Output: -321</br>
 Example 3: Input: 120 Output: 21</br>
 
-9. Palindrome Number </br>
+9.Palindrome Number </br>
 
 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
 
