@@ -105,24 +105,24 @@ namespace LeetCode
             int number = 0;
             while (input.Length > 0)
             {
-                var multiRomans = dicRomanMulti.Where(o => input.Contains(o.Key)).ToList();
-                foreach (var keyvalue in multiRomans)
-                {
-                    input = input.Remove(input.IndexOf(keyvalue.Key), 2);
-                    number += keyvalue.Value;
-                }
-
-                var singleRomans = dicRomanSingle.Where(o => input.Contains(o.Key)).ToList();
-                foreach (var keyvalue in singleRomans)
-                {
-                    input = input.Remove(input.IndexOf(keyvalue.Key), 1);
-                    number += keyvalue.Value;
-                }
+                input = CompareRoman(input, dicRomanMulti, ref number);
+                input = CompareRoman(input, dicRomanSingle, ref number);
             }
 
             stopWatch.Stop();
             time = stopWatch.Elapsed.Seconds;
             return number;
+        }
+
+        private string CompareRoman(string input, Dictionary<string, int> dicRoman, ref int number)
+        {
+            var romanCompare = dicRoman.Where(o => input.Contains(o.Key)).ToList();
+            foreach (var romanrole in romanCompare)
+            {
+                input = input.Remove(input.IndexOf(romanrole.Key), romanrole.Key.Length);
+                number += romanrole.Value;
+            }
+            return input;
         }
     }
 }
