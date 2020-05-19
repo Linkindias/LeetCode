@@ -81,5 +81,48 @@ namespace LeetCode
             time = stopWatch.Elapsed.Seconds;
             return result == input.ToString();
         }
+
+        public int RomantoInteger(string input, ref int time)
+        {
+            Dictionary<string, int> dicRomanSingle = new Dictionary<string, int>();
+            dicRomanSingle.Add("I", 1);
+            dicRomanSingle.Add("V", 5);
+            dicRomanSingle.Add("X", 10);
+            dicRomanSingle.Add("L", 50);
+            dicRomanSingle.Add("C", 100);
+            dicRomanSingle.Add("D", 500);
+            dicRomanSingle.Add("M", 1000);
+            Dictionary<string, int> dicRomanMulti = new Dictionary<string, int>();
+            dicRomanMulti.Add("IV", 4);
+            dicRomanMulti.Add("IX", 9);
+            dicRomanMulti.Add("XL", 40);
+            dicRomanMulti.Add("XC", 90);
+            dicRomanMulti.Add("CD", 400);
+            dicRomanMulti.Add("CM", 900);
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            int number = 0;
+            while (input.Length > 0)
+            {
+                var multiRomans = dicRomanMulti.Where(o => input.Contains(o.Key)).ToList();
+                foreach (var keyvalue in multiRomans)
+                {
+                    input = input.Remove(input.IndexOf(keyvalue.Key), 2);
+                    number += keyvalue.Value;
+                }
+
+                var singleRomans = dicRomanSingle.Where(o => input.Contains(o.Key)).ToList();
+                foreach (var keyvalue in singleRomans)
+                {
+                    input = input.Remove(input.IndexOf(keyvalue.Key), 1);
+                    number += keyvalue.Value;
+                }
+            }
+
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Seconds;
+            return number;
+        }
     }
 }

@@ -37,6 +37,16 @@ namespace UnitTestProject
             Assert.AreEqual(false, actual);
             Console.WriteLine(time);
         }
-        
+
+        [TestMethod]
+        public void RomantoInteger()
+        {
+            int time = 0;
+            int actual = code.RomantoInteger("MCMXCIV", ref time);
+
+            Assert.AreEqual(1994, actual);
+            Console.WriteLine(time);
+        }
+
     }
 }
