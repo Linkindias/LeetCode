@@ -180,6 +180,16 @@ namespace LeetCode
             return result;
         }
 
+        public bool ValidParentheses(string input, ref int time)
+        {
+            if (input == null) return false;
 
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Milliseconds;
+            return false;
+        }
     }
 }

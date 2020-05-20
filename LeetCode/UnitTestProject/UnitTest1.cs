@@ -128,5 +128,35 @@ namespace UnitTestProject
             Assert.AreEqual("fl", actual);
             Console.WriteLine(time);
         }
+
+        [TestMethod]
+        public void ValidParenthesesInputNull()
+        {
+            int time = 0;
+            bool actual = code.ValidParentheses(null, ref time);
+
+            Assert.AreEqual(false, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void ValidParenthesesInputError()
+        {
+            int time = 0;
+            bool actual = code.ValidParentheses("{", ref time);
+
+            Assert.AreEqual(false, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void ValidParentheses()
+        {
+            int time = 0;
+            bool actual = code.ValidParentheses("()[]{}", ref time);
+
+            Assert.AreEqual(true, actual);
+            Console.WriteLine(time);
+        }
     }
 }
