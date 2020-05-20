@@ -48,6 +48,8 @@ Example 1: Input: "III" Output: 3 Example 2: Input: "IV" Output: 4 Example 3: In
 Example 4: Input: "LVIII" Output: 58 Explanation: L = 50, V= 5, III = 3. </br>
 Example 5: Input: "MCMXCIV" Output: 1994 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4. </br>
 
+分析情境 : RomantoInteger、RomantoIntegerNotMap
+
 14.Longest Common Prefix </br>
 
 Write a function to find the longest common prefix string amongst an array of strings.
