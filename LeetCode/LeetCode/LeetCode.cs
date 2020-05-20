@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Server;
@@ -50,7 +51,7 @@ namespace LeetCode
         public int ReverseInteger(int input, ref int time)
         {
             if (input == null) return 0;
-            
+
             if (-65534 <= input && input <= 65536)
             {
                 Stopwatch stopWatch = new Stopwatch();
@@ -139,25 +140,46 @@ namespace LeetCode
 
         public string LongestCommonPrefix(string[] inputs, ref int time)
         {
+            if (inputs == null) return string.Empty;
+
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
-            string result = string.Empty;
 
-            //Array.Sort(inputs,0,inputs.Length,);
+            string result = string.Empty;
+            bool IsBreak = false;
+            Array.Sort(inputs, (x, y) => x.Length.CompareTo(y.Length)); //sort 小至大
+
+            for (int i = 0; i < inputs[0].Length; i++)
+            {
+                string compareKey = inputs[0].Substring(0, i + 1);
+
+                //Parallel.For(1, inputs.Length, (index, loopState) => //更慢50
+                //{
+                //    if (!inputs[i].StartsWith(compareKey))
+                //    {
+                //        result = compareKey.Substring(0, i);
+                //        IsBreak = true;
+                //        loopState.Stop();
+                //    }
+                //});
+                for (int j = 1; j < inputs.Length; j++)
+                {
+                    if (!inputs[j].StartsWith(compareKey))
+                    {
+                        result = compareKey.Substring(0, i);
+                        IsBreak = true;
+                        break;
+                    }
+                }
+
+                if (IsBreak) break;
+            }
 
             stopWatch.Stop();
-            time = stopWatch.Elapsed.Seconds;
+            time = stopWatch.Elapsed.Milliseconds;
             return result;
         }
 
-        
-    }
 
-    //class SortName : IComparer<string>
-    //{
-    //    public bool Compare(string x, string y)
-    //    {
-    //        return x.Length > y.Length;
-    //    }
-    //}
+    }
 }
