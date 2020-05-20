@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Server;
@@ -182,14 +183,30 @@ namespace LeetCode
 
         public bool ValidParentheses(string input, ref int time)
         {
-            if (input == null) return false;
+            if (input == null || input.Length % 2 != 0) return false;
+
+            List<string> lsCharacters = new List<string>();
+            lsCharacters.Add("()");
+            lsCharacters.Add("[]");
+            lsCharacters.Add("{}");
+            lsCharacters.Add("  ");
 
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            bool IsCorrect = true;
+            for (int i = 0; i < input.Length / 2; i++)
+            {
+                if (!lsCharacters.Contains(input.Substring(i * 2, 2)))
+                {
+                    IsCorrect = false;
+                    break;
+                }
+            }
             stopWatch.Stop();
             time = stopWatch.Elapsed.Milliseconds;
-            return false;
+
+            return IsCorrect;
         }
     }
 }

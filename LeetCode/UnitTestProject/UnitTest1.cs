@@ -140,10 +140,20 @@ namespace UnitTestProject
         }
 
         [TestMethod]
+        public void ValidParenthesesInputLengthSingle()
+        {
+            int time = 0;
+            bool actual = code.ValidParentheses("{}[", ref time);
+
+            Assert.AreEqual(false, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
         public void ValidParenthesesInputError()
         {
             int time = 0;
-            bool actual = code.ValidParentheses("{", ref time);
+            bool actual = code.ValidParentheses("{}[)", ref time);
 
             Assert.AreEqual(false, actual);
             Console.WriteLine(time);
