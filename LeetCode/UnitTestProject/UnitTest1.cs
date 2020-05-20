@@ -164,32 +164,32 @@ namespace UnitTestProject
         public void ValidParentheses()
         {
             int time = 0;
-            bool actual = code.ValidParentheses("()[]{}", ref time);
+            bool actual = code.ValidParentheses("([{]})", ref time);
 
             Assert.AreEqual(true, actual);
             Console.WriteLine(time);
         }
 
-        [TestMethod]
-        public void MergeTwoSortedListsInputNull()
-        {
-            int time = 0;
-            LinkedList<string> actuals = code.MergeTwoSortedLists(new LinkedList<string>(), new LinkedList<string>(), ref time);
+        //[TestMethod]
+        //public void MergeTwoSortedListsInputNull()
+        //{
+        //    int time = 0;
+        //    LinkedList<string> actuals = code.MergeTwoSortedLists(new LinkedList<string>(), new LinkedList<string>(), ref time);
 
-            foreach(string word in actuals)
-                Assert.AreEqual(string.Empty, word);
-            Console.WriteLine(time);
-        }
+        //    foreach(string word in actuals)
+        //        Assert.AreEqual(string.Empty, word);
+        //    Console.WriteLine(time);
+        //}
 
-        [TestMethod]
-        public void MergeTwoSortedLists()
-        {
-            int time = 0;
-            LinkedList<string> actuals = code.MergeTwoSortedLists(new LinkedList<string>(), new LinkedList<string>(), ref time);
+        //[TestMethod]
+        //public void MergeTwoSortedLists()
+        //{
+        //    int time = 0;
+        //    LinkedList<string> actuals = code.MergeTwoSortedLists(new LinkedList<string>(), new LinkedList<string>(), ref time);
 
-            foreach (string word in actuals)
-                Assert.AreEqual("", word);
-            Console.WriteLine(time);
-        }
+        //    foreach (string word in actuals)
+        //        Assert.AreEqual("", word);
+        //    Console.WriteLine(time);
+        //}
     }
 }

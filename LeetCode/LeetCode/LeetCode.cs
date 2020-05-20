@@ -51,21 +51,16 @@ namespace LeetCode
 
         public int ReverseInteger(int input, ref int time)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
             if (input == null) return 0;
 
             if (-65534 <= input && input <= 65536)
             {
-                Stopwatch stopWatch = new Stopwatch();
-                stopWatch.Start();
-
-                int num = 1;
+                int num = input < 0 ? -1 : 1;
                 var chars = input.ToString().ToCharArray();
-
-                if (chars[0] == '-')
-                {
-                    num = -1;
-                    chars[0] = ' ';
-                }
+                chars[0] = char.IsDigit(chars[0]) ? chars[0] : ' ';
                 Array.Reverse(chars);
                 int result = int.Parse(string.Join("", chars)) * num;
                 stopWatch.Stop();
@@ -185,28 +180,26 @@ namespace LeetCode
         {
             if (input == null || input.Length % 2 != 0) return false;
 
-            List<string> lsCharacters = new List<string>();
-            lsCharacters.Add("()");
-            lsCharacters.Add("[]");
-            lsCharacters.Add("{}");
-            lsCharacters.Add("  ");
+            Dictionary<char, int> disCharacters = new Dictionary<char, int>();
+            disCharacters.Add('(', 1);
+            disCharacters.Add(')', -1);
+            disCharacters.Add('[', 2);
+            disCharacters.Add(']', -2);
+            disCharacters.Add('{', 3);
+            disCharacters.Add('}', -3);
 
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            bool IsCorrect = true;
-            for (int i = 0; i < input.Length / 2; i++)
+            int number = 0;
+            for (int i = 0; i < input.Length ; i++)
             {
-                if (!lsCharacters.Contains(input.Substring(i * 2, 2)))
-                {
-                    IsCorrect = false;
-                    break;
-                }
+                number += disCharacters[input[i]];
             }
             stopWatch.Stop();
             time = stopWatch.Elapsed.Milliseconds;
 
-            return IsCorrect;
+            return number == 0;
         }
     }
 }
