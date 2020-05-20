@@ -62,3 +62,17 @@ Explanation: There is no common prefix among the input strings.
 Note:All given inputs are in lowercase letters a-z.
 
 分析情境 : LongestCommonPrefixInputNull、LongestCommonPrefixNotCommon、LongestCommonPrefix
+
+20.Valid Parentheses </br>
+
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.
+
+Example 1: Input: "()" Output: true  Example 2: Input: "()[]{}" Output: true  Example 3: Input: "(]" Output: false </br>
+Example 4: Input: "([)]" Output: false  Example 5: Input: "{[]}" Output: true </br>
+
+分析情境 : ValidParenthesesInputNull、ValidParenthesesInputError、ValidParentheses
