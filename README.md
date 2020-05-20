@@ -76,3 +76,11 @@ Example 1: Input: "()" Output: true  Example 2: Input: "()[]{}" Output: true  Ex
 Example 4: Input: "([)]" Output: false  Example 5: Input: "{[]}" Output: true </br>
 
 分析情境 : ValidParenthesesInputNull、ValidParenthesesInputError、ValidParentheses
+
+21. Merge Two Sorted Lists </br>
+
+Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+Example: Input: 1->2->4, 1->3->4  Output: 1->1->2->3->4->4 </br>
+
+分析情境 : 
