@@ -29,6 +29,7 @@ namespace LeetCode
             //        }
             //    }
             //}
+            if (nums == null) return string.Empty;
 
             //項目清單.index(總數 - 項目)
             List<int> remain = new List<int>();
@@ -48,10 +49,13 @@ namespace LeetCode
 
         public int ReverseInteger(int input, ref int time)
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
+            if (input == null) return 0;
+            
             if (-65534 <= input && input <= 65536)
             {
+                Stopwatch stopWatch = new Stopwatch();
+                stopWatch.Start();
+
                 int num = 1;
                 var chars = input.ToString().ToCharArray();
 
@@ -71,6 +75,8 @@ namespace LeetCode
 
         public bool PalindromeNumber(int input, ref int time)
         {
+            if (input.ToString().Length == 1) return false;
+
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
@@ -107,8 +113,14 @@ namespace LeetCode
             {
                 input = CompareRoman(input, dicRomanMulti, ref number);
                 input = CompareRoman(input, dicRomanSingle, ref number);
-            }
 
+                if (input.Length > 0 && dicRomanMulti.Any(o => !input.Contains(o.Key)) &&
+                    dicRomanSingle.Any(o => !input.Contains(o.Key)))
+                {
+                    input = string.Empty;
+                    number = 0;
+                }
+            }
             stopWatch.Stop();
             time = stopWatch.Elapsed.Seconds;
             return number;
@@ -131,9 +143,21 @@ namespace LeetCode
             stopWatch.Start();
             string result = string.Empty;
 
+            //Array.Sort(inputs,0,inputs.Length,);
+
             stopWatch.Stop();
             time = stopWatch.Elapsed.Seconds;
             return result;
         }
+
+        
     }
+
+    //class SortName : IComparer<string>
+    //{
+    //    public bool Compare(string x, string y)
+    //    {
+    //        return x.Length > y.Length;
+    //    }
+    //}
 }
