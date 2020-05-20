@@ -6,11 +6,17 @@ You may assume that each input would have exactly one solution, and you may not 
 
 Example: Given nums = [2, 7, 11, 15], target = 9, Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
 
+分析情境 : TwoSumInputNull、TwoSumNotFind、TwoSum
+
 7.Reverse Integer </br>
 
 Given a 32-bit signed integer, reverse digits of an integer.
 
 Example 1: Input: 123 Output: 321 ~ Example 2: Input: -123 Output: -321 ~ Example 3: Input: 120 Output: 21</br>
+
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows
+
+分析情境 : ReverseInteger、ReverseIntegerOverPower
 
 9.Palindrome Number </br>
 
@@ -22,6 +28,8 @@ Explanation: From left to right, it reads -121. From right to left, it becomes 1
 
 Example 3: Input: 10 Output: false </br>
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</br>
+
+分析情境 : PalindromeNumber、PalindromeNumberSingleInput
 
 13.Roman to Integer </br>
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
