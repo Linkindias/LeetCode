@@ -170,26 +170,36 @@ namespace UnitTestProject
             Console.WriteLine(time);
         }
 
-        //[TestMethod]
-        //public void MergeTwoSortedListsInputNull()
-        //{
-        //    int time = 0;
-        //    LinkedList<string> actuals = code.MergeTwoSortedLists(new LinkedList<string>(), new LinkedList<string>(), ref time);
+        [TestMethod]
+        public void MergeTwoSortedListsInputNull()
+        {
+            int time = 0;
+            LinkedList<string> actuals = code.MergeTwoSortedLists(new LinkedList<string>(), new LinkedList<string>(), ref time);
 
-        //    foreach(string word in actuals)
-        //        Assert.AreEqual(string.Empty, word);
-        //    Console.WriteLine(time);
-        //}
+            foreach (string word in actuals)
+                Assert.AreEqual(string.Empty, word);
+            Console.WriteLine(time);
+        }
 
-        //[TestMethod]
-        //public void MergeTwoSortedLists()
-        //{
-        //    int time = 0;
-        //    LinkedList<string> actuals = code.MergeTwoSortedLists(new LinkedList<string>(), new LinkedList<string>(), ref time);
+        [TestMethod]
+        public void MergeTwoSortedLists()
+        {
+            int time = 0;
+            var e1 = new LinkedList<string>();
+            e1.AddFirst("5"); e1.AddFirst("3"); e1.AddFirst("1");
+            var e2 = new LinkedList<string>();
+            e2.AddFirst("6"); e2.AddFirst("4"); e2.AddFirst("2"); 
+            var actuals = code.MergeTwoSortedLists(e1, e2, ref time).GetEnumerator();
+            var expects = new LinkedList<string>();
+            expects.AddFirst("6"); expects.AddFirst("5"); expects.AddFirst("4"); expects.AddFirst("3"); expects.AddFirst("2"); expects.AddFirst("1");
+            var expect = expects.GetEnumerator();
 
-        //    foreach (string word in actuals)
-        //        Assert.AreEqual("", word);
-        //    Console.WriteLine(time);
-        //}
+            while (expect.MoveNext() && actuals.MoveNext())
+            {
+                Assert.AreEqual(expect.Current, actuals.Current);
+            }
+
+            Console.WriteLine(time);
+        }
     }
 }

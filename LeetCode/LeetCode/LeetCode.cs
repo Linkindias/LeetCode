@@ -72,10 +72,10 @@ namespace LeetCode
 
         public bool PalindromeNumber(int input, ref int time)
         {
-            if (input.ToString().Length == 1) return false;
-
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
+
+            if (input.ToString().Length == 1) return false;
 
             char[] charNumber = input.ToString().ToCharArray();
             Array.Reverse(charNumber);
@@ -87,6 +87,9 @@ namespace LeetCode
 
         public int RomantoInteger(string input, ref int time)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
             Dictionary<string, int> dicRomanSingle = new Dictionary<string, int>();
             dicRomanSingle.Add("I", 1);
             dicRomanSingle.Add("V", 5);
@@ -102,8 +105,6 @@ namespace LeetCode
             dicRomanMulti.Add("XC", 90);
             dicRomanMulti.Add("CD", 400);
             dicRomanMulti.Add("CM", 900);
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
 
             int number = 0;
             while (input.Length > 0)
@@ -136,10 +137,10 @@ namespace LeetCode
 
         public string LongestCommonPrefix(string[] inputs, ref int time)
         {
-            if (inputs == null) return string.Empty;
-
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
+
+            if (inputs == null) return string.Empty;
 
             string result = string.Empty;
             bool IsBreak = false;
@@ -176,8 +177,13 @@ namespace LeetCode
             return result;
         }
 
+        
+
         public bool ValidParentheses(string input, ref int time)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
             if (input == null || input.Length % 2 != 0) return false;
 
             Dictionary<char, int> disCharacters = new Dictionary<char, int>();
@@ -188,9 +194,6 @@ namespace LeetCode
             disCharacters.Add('{', 3);
             disCharacters.Add('}', -3);
 
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-
             int number = 0;
             for (int i = 0; i < input.Length ; i++)
             {
@@ -200,6 +203,28 @@ namespace LeetCode
             time = stopWatch.Elapsed.Milliseconds;
 
             return number == 0;
+        }
+
+        public LinkedList<string> MergeTwoSortedLists(LinkedList<string> linkedList1, LinkedList<string> linkedList2, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            LinkedList<string> result = new LinkedList<string>();
+
+            if (linkedList1 == null && linkedList2 == null) return result;
+
+            var e1 = linkedList1.GetEnumerator();
+            var e2 = linkedList2.GetEnumerator();
+
+            while (e1.MoveNext() && e2.MoveNext())
+            {
+                result.AddLast(e1.Current);
+                result.AddLast(e2.Current);
+            }
+
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Milliseconds;
+            return result;
         }
     }
 }
