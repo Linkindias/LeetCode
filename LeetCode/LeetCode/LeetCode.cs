@@ -262,5 +262,25 @@ namespace LeetCode
             time = stopWatch.Elapsed.Milliseconds;
             return inputs.Length;
         }
+
+        public int ImplementstrStr(string input, string find, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            if (input == null || find == null) return 0;
+
+            int index = 0;
+            while (index < input.Length)
+            {
+                if (input.Substring(index, find.Length) == find) break;
+
+                index += find.Length;
+            }
+            
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Milliseconds;
+            return index;
+        }
     }
 }

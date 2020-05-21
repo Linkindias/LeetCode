@@ -250,5 +250,45 @@ namespace UnitTestProject
             Assert.AreEqual(5, actual);
             Console.WriteLine(time);
         }
+
+        [TestMethod]
+        public void ImplementstrStrInputNull()
+        {
+            int time = 0;
+            int actual = code.ImplementstrStr(null, "", ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void ImplementstrStrFindNull()
+        {
+            int time = 0;
+            int actual = code.ImplementstrStr("abc", null, ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void ImplementstrStrSameNull()
+        {
+            int time = 0;
+            int actual = code.ImplementstrStr(null, null, ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void ImplementstrStr()
+        {
+            int time = 0;
+            int actual = code.ImplementstrStr("abawefn", "aw", ref time);
+
+            Assert.AreEqual(2, actual);
+            Console.WriteLine(time);
+        }
     }
 }
