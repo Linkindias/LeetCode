@@ -83,4 +83,4 @@ Merge two sorted linked lists and return it as a new list. The new list should b
 
 Example: Input: 1->2->4, 1->3->4  Output: 1->1->2->3->4->4 </br>
 
-分析情境 : 
+分析情境 : MergeTwoSortedListsInputNull、MergeTwoSortedLists
