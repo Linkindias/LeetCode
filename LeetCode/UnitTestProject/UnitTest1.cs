@@ -290,5 +290,35 @@ namespace UnitTestProject
             Assert.AreEqual(2, actual);
             Console.WriteLine(time);
         }
+
+        [TestMethod]
+        public void SearchInsertPositionInputNull()
+        {
+            int time = 0;
+            int actual = code.SearchInsertPosition(null, 1, ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void SearchInsertPositionTargetNull()
+        {
+            int time = 0;
+            int actual = code.SearchInsertPosition(new int[] { 1, 3, 4, 7 }, 0, ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void SearchInsertPosition()
+        {
+            int time = 0;
+            int actual = code.SearchInsertPosition(new int[] { 1, 3, 5, 9 }, 7, ref time);
+
+            Assert.AreEqual(3, actual);
+            Console.WriteLine(time);
+        }
     }
 }

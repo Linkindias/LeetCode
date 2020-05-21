@@ -177,8 +177,6 @@ namespace LeetCode
             return result;
         }
 
-        
-
         public bool ValidParentheses(string input, ref int time)
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -278,6 +276,28 @@ namespace LeetCode
                 index += find.Length;
             }
             
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Milliseconds;
+            return index;
+        }
+
+        public int SearchInsertPosition(int[] inputs, int target, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            if (inputs == null || target == 0) return 0;
+
+            int index = inputs.ToList().IndexOf(target);
+            while (index == -1)
+            {
+                var find = inputs.Where(o => o < target).ToList();
+                index = find.Count;
+                find.Add(target);
+                find.AddRange(inputs.Where(o => o > target).ToList());
+                inputs = find.ToArray();
+            }
+
             stopWatch.Stop();
             time = stopWatch.Elapsed.Milliseconds;
             return index;
