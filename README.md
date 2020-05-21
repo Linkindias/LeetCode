@@ -53,3 +53,5 @@ int len = removeElement(nums, val);
 for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
+
+情境分析 : RemoveElementInputArrayNull、RemoveElementInputRemoveNull、RemoveElement
