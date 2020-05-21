@@ -226,5 +226,41 @@ namespace LeetCode
             time = stopWatch.Elapsed.Milliseconds;
             return result;
         }
+
+        public int RemoveDuplicatesfromSortedArray(int[] inputs, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            if (inputs == null) return 0;
+
+            List<int> lsNotDuplicate = new List<int>();
+
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                if (!lsNotDuplicate.Any(o => o == inputs[i]))
+                    lsNotDuplicate.Add(inputs[i]);
+            }
+            inputs = lsNotDuplicate.ToArray();
+
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Milliseconds;
+            return inputs.Length;
+        }
+
+        public int RemoveElement(int[] inputs, int removeItem, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            if (inputs == null ) return 0;
+            if (removeItem == 0) return inputs.Length;
+
+            inputs = inputs.Where(o => o != removeItem).ToArray();
+
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Milliseconds;
+            return inputs.Length;
+        }
     }
 }

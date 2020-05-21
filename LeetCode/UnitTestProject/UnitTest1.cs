@@ -185,20 +185,69 @@ namespace UnitTestProject
         public void MergeTwoSortedLists()
         {
             int time = 0;
-            var e1 = new LinkedList<string>();
-            e1.AddFirst("5"); e1.AddFirst("3"); e1.AddFirst("1");
-            var e2 = new LinkedList<string>();
-            e2.AddFirst("6"); e2.AddFirst("4"); e2.AddFirst("2"); 
+            var e1 = new LinkedList<string>(); e1.AddFirst("5"); e1.AddFirst("3"); e1.AddFirst("1");
+            var e2 = new LinkedList<string>(); e2.AddFirst("6"); e2.AddFirst("4"); e2.AddFirst("2");
             var actuals = code.MergeTwoSortedLists(e1, e2, ref time).GetEnumerator();
+
             var expects = new LinkedList<string>();
             expects.AddFirst("6"); expects.AddFirst("5"); expects.AddFirst("4"); expects.AddFirst("3"); expects.AddFirst("2"); expects.AddFirst("1");
+
             var expect = expects.GetEnumerator();
 
             while (expect.MoveNext() && actuals.MoveNext())
             {
                 Assert.AreEqual(expect.Current, actuals.Current);
             }
+            Console.WriteLine(time);
+        }
 
+        [TestMethod]
+        public void RemoveDuplicatesfromSortedArrayInputNull()
+        {
+            int time = 0;
+            int actual = code.RemoveDuplicatesfromSortedArray(null, ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void RemoveDuplicatesfromSortedArray()
+        {
+            int time = 0;
+            int actual = code.RemoveDuplicatesfromSortedArray(new int[] { 1, 1, 3, 4, 5, 5, 7 }, ref time);
+
+            Assert.AreEqual(5, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void RemoveElementInputArrayNull()
+        {
+            int time = 0;
+            int actual = code.RemoveElement(null, 0, ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void RemoveElementInputRemoveNull()
+        {
+            int time = 0;
+            int actual = code.RemoveElement(new int[] { 1, 2, 3, 4, 5, 7 }, 0, ref time);
+
+            Assert.AreEqual(6, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void RemoveElement()
+        {
+            int time = 0;
+            int actual = code.RemoveElement(new int[] { 1, 1, 3, 4, 5, 5, 7 }, 5, ref time);
+
+            Assert.AreEqual(5, actual);
             Console.WriteLine(time);
         }
     }
