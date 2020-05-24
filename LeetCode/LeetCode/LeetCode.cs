@@ -305,12 +305,15 @@ namespace LeetCode
 
         public string CountandSay(int input, ref int time)
         {
-            if (input == 1) return "1";
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            string result = "1";
+
+            if (input == 1) return result;
 
             if (1 < input && input <= 30)
             {
-                string result = "1";
-              
                 for (int i = 2; i <= input; i++)
                 {
                     char[] arResult = result.ToCharArray();
@@ -326,9 +329,24 @@ namespace LeetCode
                             result += arResult[j] == '1' ? "11" : "12";
                     }
                 }
+                stopWatch.Stop();
+                time = stopWatch.Elapsed.Milliseconds;
                 return result;
             }
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Milliseconds;
             return string.Empty;
+        }
+
+        public int MaximumSubarray(int[] inputs, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            if (inputs == null) return 0;
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Milliseconds;
+            return 0;
         }
     }
 }

@@ -360,5 +360,25 @@ namespace UnitTestProject
             Assert.AreEqual("21112211", actual);
             Console.WriteLine(time);
         }
+
+        [TestMethod]
+        public void MaximumSubarrayInputNull()
+        {
+            int time = 0;
+            int actual = code.MaximumSubarray(null, ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void MaximumSubarray()
+        {
+            int time = 0;
+            int actual = code.MaximumSubarray(new int[] { -1, 2, -3, 5, 1, -2, 2 }, ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
     }
 }
