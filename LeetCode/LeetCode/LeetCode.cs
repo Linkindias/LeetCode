@@ -193,7 +193,7 @@ namespace LeetCode
             disCharacters.Add('}', -3);
 
             int number = 0;
-            for (int i = 0; i < input.Length ; i++)
+            for (int i = 0; i < input.Length; i++)
             {
                 number += disCharacters[input[i]];
             }
@@ -251,7 +251,7 @@ namespace LeetCode
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            if (inputs == null ) return 0;
+            if (inputs == null) return 0;
             if (removeItem == 0) return inputs.Length;
 
             inputs = inputs.Where(o => o != removeItem).ToArray();
@@ -275,7 +275,7 @@ namespace LeetCode
 
                 index += find.Length;
             }
-            
+
             stopWatch.Stop();
             time = stopWatch.Elapsed.Milliseconds;
             return index;
@@ -301,6 +301,34 @@ namespace LeetCode
             stopWatch.Stop();
             time = stopWatch.Elapsed.Milliseconds;
             return index;
+        }
+
+        public string CountandSay(int input, ref int time)
+        {
+            if (input == 1) return "1";
+
+            if (1 < input && input <= 30)
+            {
+                string result = "1";
+              
+                for (int i = 2; i <= input; i++)
+                {
+                    char[] arResult = result.ToCharArray();
+                    result = string.Empty;
+                    for (int j = 0; j < arResult.Length; j++)
+                    {
+                        if (j + 1 < arResult.Length && arResult[j] == arResult[j + 1])
+                        {
+                            result += arResult[j] == '1' ? "21" : "22";
+                            j += 1;
+                        }
+                        else
+                            result += arResult[j] == '1' ? "11" : "12";
+                    }
+                }
+                return result;
+            }
+            return string.Empty;
         }
     }
 }

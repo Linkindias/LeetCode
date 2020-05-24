@@ -320,5 +320,45 @@ namespace UnitTestProject
             Assert.AreEqual(3, actual);
             Console.WriteLine(time);
         }
+
+        [TestMethod]
+        public void CountandSayInputZero()
+        {
+            int time = 0;
+            string actual = code.CountandSay(0, ref time);
+
+            Assert.AreEqual(string.Empty, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void CountandSayInputOne()
+        {
+            int time = 0;
+            string actual = code.CountandSay(1, ref time);
+
+            Assert.AreEqual("1", actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void CountandSayScopeOut()
+        {
+            int time = 0;
+            string actual = code.CountandSay(33, ref time);
+
+            Assert.AreEqual(string.Empty, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void CountandSay()
+        {
+            int time = 0;
+            string actual = code.CountandSay(6, ref time);
+
+            Assert.AreEqual("21112211", actual);
+            Console.WriteLine(time);
+        }
     }
 }
