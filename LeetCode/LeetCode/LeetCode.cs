@@ -308,25 +308,22 @@ namespace LeetCode
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            string result = "1";
-
-            if (input == 1) return result;
+            if (input == 1) return "1";
 
             if (1 < input && input <= 30)
             {
+                string result = "1";
                 for (int i = 2; i <= input; i++)
                 {
                     char[] arResult = result.ToCharArray();
                     result = string.Empty;
                     for (int j = 0; j < arResult.Length; j++)
                     {
-                        if (j + 1 < arResult.Length && arResult[j] == arResult[j + 1])
-                        {
-                            result += arResult[j] == '1' ? "21" : "22";
-                            j += 1;
-                        }
-                        else
-                            result += arResult[j] == '1' ? "11" : "12";
+                        bool IsCross = j + 1 < arResult.Length && arResult[j] == arResult[j + 1];
+
+                        result += $"{(IsCross ? 2 : 1)}{arResult[j]}";
+
+                        if (IsCross) j++;
                     }
                 }
                 stopWatch.Stop();

@@ -355,9 +355,9 @@ namespace UnitTestProject
         public void CountandSay()
         {
             int time = 0;
-            string actual = code.CountandSay(6, ref time);
+            string actual = code.CountandSay(10, ref time);
 
-            Assert.AreEqual("21112211", actual);
+            Assert.AreEqual("121122112221112221112211", actual);
             Console.WriteLine(time);
         }
 
