@@ -341,9 +341,20 @@ namespace LeetCode
             stopWatch.Start();
 
             if (inputs == null) return 0;
+
+            int sum = 0, before = 0;
+
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                sum += inputs[i];
+
+                if (sum < 0) sum = 0; //負數為起點
+                before = Math.Max(sum, before); //與上個正數比
+            }
+
             stopWatch.Stop();
             time = stopWatch.Elapsed.Milliseconds;
-            return 0;
+            return before;
         }
     }
 }

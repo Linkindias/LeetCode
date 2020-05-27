@@ -375,9 +375,9 @@ namespace UnitTestProject
         public void MaximumSubarray()
         {
             int time = 0;
-            int actual = code.MaximumSubarray(new int[] { -1, 2, -3, 5, 1, -2, 2 }, ref time);
+            int actual = code.MaximumSubarray(new int[] { 1,-6,3,2,8,-7,1,3 }, ref time);
 
-            Assert.AreEqual(0, actual);
+            Assert.AreEqual(13, actual);
             Console.WriteLine(time);
         }
     }
