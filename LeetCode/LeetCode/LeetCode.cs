@@ -363,14 +363,32 @@ namespace LeetCode
             stopWatch.Start();
 
             if (input == null) return 0;
-            bool isUpper = false, isLower = false;
 
-            for(int i = 0; i< input.Length; i++)
+            bool isUpper = false, isLower = false; //code長，find短
+            int first = 0;
+            foreach(int index in input.Split(' ').Select(o => o.Length))
             {
-                if (char.IsUpper(input[i])) isUpper = true;
-                if (char.IsLower(input[i])) isLower = true;
-                if (' '.Equals(input[i]) && isUpper && isLower) return i;
+                int start = first == 0 ? 0 : index;
+                int end = first == 0 ? index : input.Length;
+                for (int i = start; i < end; i++)
+                {
+                    if (char.IsUpper(input[i])) isUpper = true;
+                    if (char.IsLower(input[i])) isLower = true;
+                    if (isUpper && isLower) return index;
+                }
             }
+            //string[] arWord = input.Split(' '); code短，find長
+            //foreach(string word in arWord)
+            //{
+            //    if (Array.Find(word.ToCharArray(), o => char.IsLetter(o) && char.IsUpper(o)) != null) return 1;
+            //}
+
+            //for (int i = 0; i < input.Length; i++) code中，find中
+            //{
+            //    if (char.IsUpper(input[i])) isUpper = true;
+            //    if (char.IsLower(input[i])) isLower = true;
+            //    if (isUpper && isLower) return input.IndexOf(' ');
+            //}
 
             stopWatch.Stop();
             time = stopWatch.Elapsed.Milliseconds;
