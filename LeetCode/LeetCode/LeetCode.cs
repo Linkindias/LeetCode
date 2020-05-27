@@ -334,7 +334,7 @@ namespace LeetCode
             time = stopWatch.Elapsed.Milliseconds;
             return string.Empty;
         }
-
+      
         public int MaximumSubarray(int[] inputs, ref int time)
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -356,5 +356,26 @@ namespace LeetCode
             time = stopWatch.Elapsed.Milliseconds;
             return before;
         }
+
+        public int LenghtOfLastWord(string input, ref int time)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            if (input == null) return 0;
+            bool isUpper = false, isLower = false;
+
+            for(int i = 0; i< input.Length; i++)
+            {
+                if (char.IsUpper(input[i])) isUpper = true;
+                if (char.IsLower(input[i])) isLower = true;
+                if (' '.Equals(input[i]) && isUpper && isLower) return i;
+            }
+
+            stopWatch.Stop();
+            time = stopWatch.Elapsed.Milliseconds;
+            return 0;
+        }
+
     }
 }

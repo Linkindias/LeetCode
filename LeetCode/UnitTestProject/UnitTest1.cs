@@ -380,5 +380,36 @@ namespace UnitTestProject
             Assert.AreEqual(13, actual);
             Console.WriteLine(time);
         }
+
+        [TestMethod]
+        public void LenghtOfLastWordInputNull()
+        {
+            int time = 0;
+            int actual = code.LenghtOfLastWord(null, ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void LenghtOfLastWordNotMapping()
+        {
+            int time = 0;
+            int actual = code.LenghtOfLastWord("asdfasdf", ref time);
+
+            Assert.AreEqual(0, actual);
+            Console.WriteLine(time);
+        }
+
+        [TestMethod]
+        public void LenghtOfLastWord()
+        {
+            int time = 0;
+            int actual = code.LenghtOfLastWord("Hello World", ref time);
+
+            Assert.AreEqual(5, actual);
+            Console.WriteLine(time);
+        }
+
     }
 }
