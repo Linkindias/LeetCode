@@ -84,3 +84,47 @@ Merge two sorted linked lists and return it as a new list. The new list should b
 Example: Input: 1->2->4, 1->3->4  Output: 1->1->2->3->4->4 </br>
 
 分析情境 : MergeTwoSortedListsInputNull、MergeTwoSortedLists
+
+26. Remove Duplicates from Sorted Array </br>
+
+Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+
+Example 1 : Given nums = [1,1,2],
+Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
+It doesn't matter what you leave beyond the returned length.
+
+Example 2 : Given nums = [0,0,1,1,1,2,2,3,3,4],
+Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.
+It doesn't matter what values are set beyond the returned length.
+
+情境分析 : RemoveDuplicatesfromSortedArrayInputNull、RemoveDuplicatesfromSortedArray
+
+27. Remove Element </br>
+
+Given an array nums and a value val, remove all instances of that value in-place and return the new length.
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+
+Example 1 : Given nums = [3,2,2,3], val = 3, Your function should return length = 2, with the first two elements of nums being 2.
+It doesn't matter what you leave beyond the returned length.
+
+Example 2 : Given nums = [0,1,2,2,3,0,4,2], val = 2, Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4. Note that the order of those five elements can be arbitrary.
+It doesn't matter what values are set beyond the returned length.
+
+情境分析 : RemoveElementInputArrayNull、RemoveElementInputRemoveNull、RemoveElement
+
+28. Implement strStr() </br>
+
+Implement strStr().
+
+Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+Example 1 : Input: haystack = "hello", needle = "ll" Output: 2 </br>
+Example 2 : Input: haystack = "aaaaa", needle = "bba" Output: -1 </br>
+
+Clarification:
+What should we return when needle is an empty string? This is a great question to ask during an interview.
+For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
+
+情境分析 : ImplementstrStrInputNull、ImplementstrStrFindNull、ImplementstrStrSameNull、ImplementstrStr
