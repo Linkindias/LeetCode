@@ -112,4 +112,13 @@ Given an integer array nums, find the contiguous subarray (containing at least o
 Example : Input: [-2,1,-3,4,-1,2,1,-5,4], Output: 6  Explanation: [4,-1,2,1] has the largest sum = 6.
 Follow up : If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 
-情境分析 : 
+情境分析 : MaximumSubarrayInputNull、MaximumSubarray
+
+58. Length of Last Word </br>
+
+Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word (last word means the last appearing word if we loop from left to right) in the string. If the last word does not exist, return 0.
+Note: A word is defined as a maximal substring consisting of non-space characters only.
+
+Example : Input: "Hello World" Output: 5
+
+情境分析 : LenghtOfLastWordInputNull、LenghtOfLastWordNotMapping、LenghtOfLastWord
